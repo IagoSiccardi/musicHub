@@ -32,11 +32,11 @@ svg {
   font-size: 5rem;
   top: calc(50% - 2.5rem);
   left: calc(50% - 2.5rem);
-  color: ${({darkMode}) => darkMode ? '#000000d6' : '#ffffffc1'};
+  color: #ffffffc1;
   transition: .5s ease;
   &:hover{
     transform: scale(1.05);
-    color: ${({darkMode}) => darkMode ? 'white' : 'black'};
+    color: black;
   }
   
 }

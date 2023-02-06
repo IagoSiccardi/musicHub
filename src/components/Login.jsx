@@ -40,9 +40,17 @@ place-items: center;
 place-content: center;
 h1 {
     color: #4400ff;
-    font-size: 5rem;
+    font-size: 3rem;
     text-transform: capitalize
 }
+
+@media (min-width: 500px){
+  h1 {
+    font-size: 5rem;
+  }
+
+}
+
 button {
     padding: 10px;
     background-color: #4400ff;

@@ -1,11 +1,13 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaSearch, FaBars } from "react-icons/fa";
 import styled from "styled-components";
 import { useStateProvider } from "../utils/StateProvider";
 
 const Navbar = ({ darkMode }) => {
   const [{ token, user }, dispatch] = useStateProvider();
+
+  const [burgerButton, setBurgerButton] = useState(true);
 
   useEffect(() => {
     const getUser = async () => {
@@ -25,6 +27,7 @@ const Navbar = ({ darkMode }) => {
   }, [token, dispatch]);
 
   return (
+    <>
     <Nav darkMode={darkMode}>
       <section className="icon">
         <span>MusicHub</span>
@@ -51,19 +54,84 @@ const Navbar = ({ darkMode }) => {
           />
         </div>
       </section>
+
+      <FaBars className="burgerButton" onClick={() => setBurgerButton(!burgerButton)} />
+      {burgerButton ? (
+        <section className="burgerSection">
+          <ul>
+            <li>Principal</li>
+            <li>Explorar</li>
+            <li className="input-search">
+            <FaSearch />
+            <input type="search" placeholder="Buscar..." />
+            </li>
+          </ul>
+        </section>
+      ) : null}
     </Nav>
+    </>
+
   );
 };
 
 const Nav = styled.nav`
   align-items: center;
-  display: flex;
-  height: 4rem;
+  height: auto;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
   position: relative;
   width: 100%;
   background-color: ${({ darkMode }) => (darkMode ? "#fffdfd26" : "#9900ff2b")};
+
+  @media (min-width:748px){
+  padding: 20px;
+  height: 4rem;
+  display: flex;
+  
+
+  }
+
+  .burgerSection {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 1.1rem;
+    @media (min-width: 748px) {
+      display: none;
+    }
+
+    ul li {
+      margin-bottom: 10px ;
+      cursor: pointer;
+    }
+
+    .input-search {
+      position: relative;
+
+      svg {
+        color: black;
+        position: absolute;
+        top: 10px;
+        left: 170px;
+        z-index: 1;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        transition: 0.5s ease;
+        font-size: 0.9rem;
+
+        &:focus {
+          outline: none;
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+
+  }
+
   section {
     color: ${({ darkMode }) => (darkMode ? "black" : "white")};
     font-weight: 700;
@@ -71,39 +139,28 @@ const Nav = styled.nav`
   }
 
   .icon {
-    position: absolute;
     left: 20px;
     transition: 0.5s ease;
     cursor: pointer;
 
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  .user-section {
-    position: absolute;
-    right: 30px;
-    top: 8px;
-    .user {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid white;
-
-      img {
-        width: 100%;
-        height: 100%;
+    @media (min-width: 748px) {
+      position: absolute;
+      &:hover {
+        transform: scale(1.1);
       }
     }
+
   }
 
   .ul-section ul {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    @media (min-width: 748px) {
+      display: flex;
+    }
 
     li {
       transition: 0.5s ease;
@@ -137,6 +194,43 @@ const Nav = styled.nav`
           transform: scale(1.02);
         }
       }
+    }
+  }
+
+  .user-section {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 8px;
+
+    @media (min-width: 748px) {
+      display: flex;
+    }
+
+    .user {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid white;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .burgerButton {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+
+    @media (min-width: 748px) {
+      display: none;
     }
   }
 `;
