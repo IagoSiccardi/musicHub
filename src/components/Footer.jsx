@@ -12,7 +12,7 @@ const Footer = ({darkMode}) => {
         >
           <FaLinkedin size="2rem" color={darkMode ? 'black' : 'white'} />
         </a>
-        <a href="https://github.com/IagoSiccardi/IA-Proyect" target="blank">
+        <a href="https://github.com/IagoSiccardi/musicHub" target="blank">
           <FaGithub size="2rem" color={darkMode ? 'black' : 'white'} />
         </a>
         <a
@@ -33,7 +33,7 @@ const Container = styled.footer`
   background: ${({ darkMode }) =>
     darkMode
       ? "linear-gradient(#df8908,#ca6008)"
-      : "linear-gradient(#2f0549,black)"};
+      : "linear-gradient(#2f0549,#190029)"};
 
   .footer-section {
     align-items: center;

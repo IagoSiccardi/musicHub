@@ -5,7 +5,7 @@ function Login() {
 
   const login = async () => {
     const clientId = "f6962069a2dd4bc39326bf72962d7065"
-    const redirectUrl = "http://localhost:3000"
+    const redirectUrl = process.env.REACT_APP_SITE_URL
     const apiUrl = "https://accounts.spotify.com/authorize"
     const scope = [
       "user-read-email",
@@ -22,6 +22,7 @@ function Login() {
 
   }
 
+  
 
   return (
     <Container className="App">
