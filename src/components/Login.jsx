@@ -5,7 +5,7 @@ function Login() {
 
   const login = async () => {
     const clientId = "f6962069a2dd4bc39326bf72962d7065"
-    const redirectUrl = "https://musichub23.netlify.app"
+    const redirectUrl = process.env.REACT_APP_SITE_URL ? process.env.REACT_APP_SITE_URL :  "https://musichub23.netlify.app"
     const apiUrl = "https://accounts.spotify.com/authorize"
     const scope = [
       "user-read-email",
