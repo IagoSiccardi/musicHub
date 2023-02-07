@@ -7,7 +7,7 @@ import { useStateProvider } from "../utils/StateProvider";
 const Navbar = ({ darkMode }) => {
   const [{ token, user }, dispatch] = useStateProvider();
 
-  const [burgerButton, setBurgerButton] = useState(true);
+  const [burgerButton, setBurgerButton] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
@@ -66,6 +66,16 @@ const Navbar = ({ darkMode }) => {
             <input type="search" placeholder="Buscar..." />
             </li>
           </ul>
+          <div className="user">
+          <img
+            src={
+              user.images
+                ? user.images[0].url
+                : "https://aaahockey.org/wp-content/uploads/2017/06/default-avatar.png"
+            }
+            alt=""
+          />
+        </div>
         </section>
       ) : null}
     </Nav>
@@ -81,7 +91,12 @@ const Nav = styled.nav`
   padding: 30px;
   position: relative;
   width: 100%;
-  background-color: ${({ darkMode }) => (darkMode ? "#fffdfd26" : "#9900ff2b")};
+  background-color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  background: ${({ darkMode }) =>
+    darkMode
+      ? "linear-gradient(#df8908, #ee7c12)"
+      : "linear-gradient(black, #24033a)"};
+
 
   @media (min-width:748px){
   padding: 20px;
@@ -95,6 +110,8 @@ const Nav = styled.nav`
     margin-top: 20px;
     width: 100%;
     font-size: 1.1rem;
+    user-select: none;
+
     @media (min-width: 748px) {
       display: none;
     }
@@ -113,6 +130,7 @@ const Nav = styled.nav`
         top: 10px;
         left: 170px;
         z-index: 1;
+        background-color: white;
       }
 
       input {
@@ -128,9 +146,29 @@ const Nav = styled.nav`
         }
       }
     }
-  }
+
+    .user {
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid white;
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
 
   }
+
+
+
+  
 
   section {
     color: ${({ darkMode }) => (darkMode ? "black" : "white")};
@@ -180,6 +218,8 @@ const Nav = styled.nav`
         top: 10px;
         right: 10px;
         z-index: 1;
+        background-color: white;
+
       }
 
       input {
@@ -208,6 +248,7 @@ const Nav = styled.nav`
     }
 
     .user {
+      cursor: pointer;
       width: 50px;
       height: 50px;
       border-radius: 50%;

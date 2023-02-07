@@ -6,19 +6,20 @@ import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import CurrentlyPlaylist from "./CurrentlyPlaylist";
 import JumpBack from "./JumpBack";
 
-
 const Home = ({ darkMode, setDarkMode }) => {
   return (
-    <Container darkMode={darkMode}>
+    <>
       <Navbar darkMode={darkMode} />
-      <Switch onClick={() => setDarkMode(!darkMode)} darkMode={darkMode}>
-        <input type="checkbox" />
-        <span>{darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}</span>
-      </Switch>
+      <Container darkMode={darkMode}>
+        <Switch onClick={() => setDarkMode(!darkMode)} darkMode={darkMode}>
+          <input type="checkbox" />
+          <span>{darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}</span>
+        </Switch>
 
-      <CurrentlyPlaylist darkMode={darkMode} />
-      <JumpBack darkMode={darkMode} />
-    </Container>
+        <CurrentlyPlaylist darkMode={darkMode} />
+        <JumpBack darkMode={darkMode} />
+      </Container>
+    </>
   );
 };
 
@@ -38,15 +39,15 @@ const Switch = styled.div`
   display: flex;
   position: absolute;
   cursor: pointer;
-  top: 80px;
+  top: 40px;
   right: 15px;
 
   @media (min-width: 500px) {
-    top: 100px;
+    top: 40px;
     right: 25px;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 748px) {
     right: 65px;
   }
 
@@ -85,7 +86,5 @@ const Switch = styled.div`
     transition: 0.5s ease;
   }
 `;
-
-
 
 export default Home;
