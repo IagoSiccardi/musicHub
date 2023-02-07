@@ -76,6 +76,7 @@ row-gap: 25px;
 margin-top: 2rem;
 width: 90%;
 margin: 0px 5%;
+padding-bottom: 20px;
 
 @media (min-width: 748px) {
     grid-template-columns: repeat(3, 1fr);

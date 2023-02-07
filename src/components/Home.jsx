@@ -5,6 +5,7 @@ import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 import CurrentlyPlaylist from "./CurrentlyPlaylist";
 import JumpBack from "./JumpBack";
+import Footer from "./Footer";
 
 const Home = ({ darkMode, setDarkMode }) => {
   return (
@@ -19,6 +20,7 @@ const Home = ({ darkMode, setDarkMode }) => {
         <CurrentlyPlaylist darkMode={darkMode} />
         <JumpBack darkMode={darkMode} />
       </Container>
+      <Footer darkMode={darkMode}/>
     </>
   );
 };
