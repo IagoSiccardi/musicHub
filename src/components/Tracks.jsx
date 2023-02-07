@@ -29,11 +29,19 @@ transition: .5s ease ;
 
 svg {
   position: absolute;
-  font-size: 5rem;
-  top: calc(50% - 2.5rem);
-  left: calc(50% - 2.5rem);
+  font-size: 4rem;
+  top: calc(50% - 2rem);
+  left: calc(50% - 2rem);
   color: #ffffffc1;
   transition: .5s ease;
+
+  @media (min-width: 748px) {
+    font-size: 5rem;
+    top: calc(50% - 2.5rem);
+    left: calc(50% - 2.5rem);
+  }
+
+
   &:hover{
     transform: scale(1.05);
     color: black;
