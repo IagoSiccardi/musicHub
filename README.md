@@ -1,7 +1,8 @@
 # Music Hub | En proceso...
-## Sitio Web `https://musichub23.netlify.app`
+### [Sitio Web](https://musichub23.netlify.app)
 
-<strong>Usando la Api de Spotify para crear un clone de la App.</strong>
+
+***Usando la Api de Spotify para crear un clone de la misma.***
 ## Inicializar proyecto.
 
 1) Clonar el proyecto en la carpeta deseada con el comando `https://github.com/IagoSiccardi/musicHub.git`
@@ -10,9 +11,9 @@
 
 ### Inspiración:
 
-1) Youtube Music
-2) Spotify
-3) SoundCloud
+- Youtube Music
+- Spotify
+- SoundCloud
 
 
 
