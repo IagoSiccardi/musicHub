@@ -46,9 +46,9 @@ const Navbar = ({ darkMode }) => {
         <div className="user">
           <img
             src={
-              user.images === undefined
-                ? "https://aaahockey.org/wp-content/uploads/2017/06/default-avatar.png"
-                : user.images[0].url 
+              user && user.images
+              ? user.images[0].url 
+              : "https://aaahockey.org/wp-content/uploads/2017/06/default-avatar.png"
             }
             alt=""
           />
