@@ -17,6 +17,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
+        
       };
 
     case "playlist_info":

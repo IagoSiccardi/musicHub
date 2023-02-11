@@ -18,6 +18,7 @@ const Navbar = ({ darkMode }) => {
         },
       });
 
+
       dispatch({
         type: "user_info",
         payload: data,
@@ -25,6 +26,7 @@ const Navbar = ({ darkMode }) => {
     };
     getUser();
   }, [token, dispatch]);
+
 
   return (
     <>
@@ -46,8 +48,8 @@ const Navbar = ({ darkMode }) => {
         <div className="user">
           <img
             src={
-              user && user.images
-              ? user.images[0].url 
+             user.images
+              ? user.images[0] ? user.images[0].url : "https://aaahockey.org/wp-content/uploads/2017/06/default-avatar.png"
               : "https://aaahockey.org/wp-content/uploads/2017/06/default-avatar.png"
             }
             alt=""
