@@ -34,7 +34,6 @@ const JumpBack = ({ darkMode }) => {
     getRecentlyPlayed();
   }, [token, dispatch]);
 
-  console.table(recentlyPlayed);
 
   return (
     <Main darkMode={darkMode}>
