@@ -34,26 +34,38 @@ const CurrentlyPlaylist = ({ darkMode }) => {
     getPlaylists();
   }, [dispatch, token]);
 
+
+  console.log(playlist)
+
   return (
     <Container darkMode={darkMode}>
       <h1 className="h1">Mis Playlists</h1>
       <PlaylistContainer>
-        {playlist ? (
-          playlist.items.map(({ id, name, images, owner, tracks }) => (
-            <PlaylistItem
-              darkMode={darkMode}
-              key={id}
-              name={name}
-              images={images}
-              owner={owner}
-              tracks={tracks}
-            />
-          ))
-        ) : (
+        {
+        playlist ? playlist.items.length >= 1 ?
+          (
+            playlist.items.map(({ id, name, images, owner, tracks }) => (
+              <PlaylistItem
+                darkMode={darkMode}
+                key={id}
+                name={name}
+                images={images}
+                owner={owner}
+                tracks={tracks}
+              />
+            ))
+          )
+          : 
+          (
+          <h2 className="h2">Aún no has creado ninguna playlist</h2> 
+          ) 
+          : 
+          (
           <Loading>
             <AiOutlineLoading3Quarters />
           </Loading>
-        )}
+          )
+        }
       </PlaylistContainer>
     </Container>
   );
@@ -82,6 +94,28 @@ const Container = styled.main`
     }
   }
 
+  h2 {
+    display: grid;
+    place-content: center;
+    color: ${({ darkMode }) => (darkMode ? "black" : "white")};
+    height: 20vh;
+
+  @media (min-width: 500px) {
+    position: absolute;
+    top: calc(50%);
+    display: block;
+
+  }
+
+  @media (min-width: 748px) {
+    position: absolute;
+    top: calc(50% - .75rem);
+    display: block;
+
+  }
+
+  }
+
   @media (min-width: 500px) {
     padding: 0 5%;
   }
@@ -98,6 +132,7 @@ const PlaylistContainer = styled.section`
   width: 100%;
   margin-top: 10px;
   row-gap: 10px;
+  position: relative;
 
   @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
