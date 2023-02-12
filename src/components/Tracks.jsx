@@ -50,7 +50,8 @@ svg {
 }
 
 .img-container {
-  width: 170px;
+  width: 80vw;
+  
   height: 75px;
 
   @media (min-width: 500px) {

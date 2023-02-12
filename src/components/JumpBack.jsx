@@ -70,12 +70,16 @@ const Main = styled.main`
 const Container = styled.section`
 display: grid;
 place-items: center;
-grid-template-columns: repeat(2, 1fr);
+grid-template-columns: repeat(1, 1fr);
 row-gap: 25px;
 margin-top: 2rem;
 width: 90%;
 margin: 0px 5%;
 padding-bottom: 20px;
+
+@media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
 @media (min-width: 748px) {
     grid-template-columns: repeat(3, 1fr);

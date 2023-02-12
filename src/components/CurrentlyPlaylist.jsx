@@ -12,7 +12,7 @@ const CurrentlyPlaylist = ({ darkMode }) => {
     const getPlaylists = async () => {
       try {
         const response = await axios.get(
-          "https://api.spotify.com/v1/me/playlists?limit=5&offset=10",
+          "https://api.spotify.com/v1/me/playlists?limit=5",
           {
             headers: {
               Authorization: "Bearer " + token,
